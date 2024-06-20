@@ -1,6 +1,6 @@
 :root {
     --white: #fff;
-    --red: #E25858
+    --red: #E25858;
     --blue: #4EA8DE;
     --blue-dark: #1E6F9F;
     --purple: #8284FA;
@@ -34,4 +34,5 @@ body, input, textarea, button {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-sizing: 1rem;
+    line-height: 1.4;
 }
