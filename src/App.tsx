@@ -1,4 +1,4 @@
-
+import './global.css'
 
 export function App() {
 
@@ -8,4 +8,3 @@ export function App() {
     </>
   )
 }
-
