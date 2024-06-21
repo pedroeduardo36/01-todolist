@@ -15,6 +15,14 @@ const tasks = [
     id: 2,
     name: "Array de 2",
   },
+  {
+    id: 3,
+    name: "Vasco da gama",
+  },
+  {
+    id: 4,
+    name: "Eu amo a Júlia",
+  },
 ];
 
 export function App() {
@@ -25,16 +33,17 @@ export function App() {
         <NewTask />
         <TaskCounter />
         <div className={styles.taskList}>
-                {/* <EmptyList /> */}
+          {/* <EmptyList /> */}
 
-                {tasks.map((task) => {
-                return (
-                    <TaskList 
-                    key={task.id}
-                    name={task.name}
-                    />
-                )
+          {tasks.length > 0 ? (
+            <>
+              {tasks.map((task) => {
+                return <TaskList key={task.id} name={task.name} />;
               })}
+            </>
+          ) : (
+            <EmptyList />
+          )}
         </div>
       </div>
     </div>
