@@ -1,0 +1,13 @@
+.listWrapper {
+    display: flex;
+    width: 100%;
+    background: var(--gray-400);
+    color: var(--gray-300);
+    padding: 1rem;
+
+    border-radius: 8px;
+}
+
+.listWrapper p {
+    flex: 1;
+}
