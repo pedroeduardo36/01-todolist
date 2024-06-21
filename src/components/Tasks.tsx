@@ -22,7 +22,7 @@ export function Tasks() {
             <div className={styles.taskList}>
                 {/* <ClipboardText size={56}/>
                 <strong>Você ainda não tem tarefas cadastradas</strong>
-                <p>Crie tarefas e organize seus itens a fazer</p> */}
+                <p className={styles.emptyDescription}>Crie tarefas e organize seus itens a fazer</p> */}
 
                 <TaskList />
             </div>

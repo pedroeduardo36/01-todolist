@@ -63,6 +63,6 @@
     font-weight: bold;
 }
 
-.taskList p {
+.emptyDescription {
     color: var(--gray-300);
 }

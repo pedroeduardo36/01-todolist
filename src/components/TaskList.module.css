@@ -4,10 +4,14 @@
     background: var(--gray-400);
     color: var(--gray-300);
     padding: 1rem;
-
+    gap: 1.35rem;
+    align-items: center;
     border-radius: 8px;
 }
 
 .listWrapper p {
     flex: 1;
+    color: var(--white);
 }
+
+
