@@ -10,3 +10,24 @@
     flex-direction: column;
     align-items: center;
 }
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid var(--gray-400);
+    border-radius: 8px;
+    padding: 1.5rem 0;
+    color: var(--gray-400);
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.taskList strong {
+    color: var(--gray-300);
+    font-weight: bold;
+}
+
+.emptyDescription {
+    color: var(--gray-300);
+}
