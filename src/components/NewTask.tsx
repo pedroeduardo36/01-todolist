@@ -5,7 +5,7 @@ import styles from './NewTask.module.css'
 export function NewTask() {
 
     function handleCreateNewTask() {
-
+        console.log('Oi deu certo aqui')
     }
 
     return (

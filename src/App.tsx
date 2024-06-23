@@ -1,10 +1,11 @@
 import { Header } from "./components/Header";
-import { NewTask } from "./components/NewTask";
 import styles from "./App.module.css";
 import "./global.css";
 import { TaskCounter } from "./components/TasksCounter";
 import { TaskList } from "./components/TaskList";
 import { EmptyList } from "./components/EmptyList";
+import { PlusCircle } from "@phosphor-icons/react";
+import { useState } from "react";
 
 const tasks = [
   {
@@ -26,14 +27,31 @@ const tasks = [
 ];
 
 export function App() {
+  // const [tasks, setTasks] = useState([''])
+
+
+  function handleCreateNewTask() {
+    
+  }
+
   return (
     <div className={styles.wrapper}>
       <Header />
+
+      <div className={styles.inputWrapper}>
+        <input
+          className={styles.input}
+          placeholder="Adicione uma nova tarefa"
+        />
+        <button onClick={handleCreateNewTask} className={styles.button}>
+          Criar
+          <PlusCircle size={16} />
+        </button>
+      </div>
+
       <div className={styles.taskWrapper}>
-        <NewTask />
         <TaskCounter />
         <div className={styles.taskList}>
-          {/* <EmptyList /> */}
 
           {tasks.length > 0 ? (
             <>
