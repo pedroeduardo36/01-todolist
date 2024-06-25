@@ -7,31 +7,20 @@ import { EmptyList } from "./components/EmptyList";
 import { PlusCircle } from "@phosphor-icons/react";
 import { useState } from "react";
 
-const tasks = [
-  {
-    id: 1,
-    name: "Array de post",
-  },
-  {
-    id: 2,
-    name: "Array de 2",
-  },
-  {
-    id: 3,
-    name: "Vasco da gama",
-  },
-  {
-    id: 4,
-    name: "Eu amo a Júlia",
-  },
-];
+
 
 export function App() {
-  // const [tasks, setTasks] = useState([''])
-
+  const [tasks, setTasks] = useState(["Estado inicial do meu useState"]);
+  const [newTask, setNewTask] = useState('')
 
   function handleCreateNewTask() {
-    
+
+    if (newTask.trim() === '') {
+      return;
+    }
+
+    setTasks([...tasks, newTask]);
+    setNewTask('')
   }
 
   return (
@@ -42,6 +31,8 @@ export function App() {
         <input
           className={styles.input}
           placeholder="Adicione uma nova tarefa"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
         />
         <button onClick={handleCreateNewTask} className={styles.button}>
           Criar
@@ -52,11 +43,11 @@ export function App() {
       <div className={styles.taskWrapper}>
         <TaskCounter />
         <div className={styles.taskList}>
-
           {tasks.length > 0 ? (
             <>
               {tasks.map((task) => {
-                return <TaskList key={task.id} name={task.name} />;
+                // return <TaskList key={task.id} name={task.name} />;
+                return <TaskList content={task} />;
               })}
             </>
           ) : (

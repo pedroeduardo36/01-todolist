@@ -4,10 +4,10 @@ import { Checkbox } from "@mui/material";
 import { blue, purple } from "@mui/material/colors";
 
 interface TaskListProps {
-  name: string;
+  content: string;
 }
 
-export function TaskList({ name }: TaskListProps) {
+export function TaskList({ content }: TaskListProps) {
   return (
     <div className={styles.listWrapper}>
       <Checkbox
@@ -18,7 +18,7 @@ export function TaskList({ name }: TaskListProps) {
           },
         }}
       />
-      <p>{name}</p>
+      <p>{content}</p>
       <button>
         <Trash size={16} color="#808080" />
       </button>
