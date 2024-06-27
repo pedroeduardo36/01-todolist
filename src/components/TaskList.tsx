@@ -11,6 +11,7 @@ export function TaskList({ content }: TaskListProps) {
   return (
     <div className={styles.listWrapper}>
       <Checkbox
+        
         sx={{
           color: blue[200],
           "&.Mui-checked": {

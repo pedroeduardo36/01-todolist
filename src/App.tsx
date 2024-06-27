@@ -6,21 +6,19 @@ import { TaskList } from "./components/TaskList";
 import { EmptyList } from "./components/EmptyList";
 import { PlusCircle } from "@phosphor-icons/react";
 import { useState } from "react";
-
-
+import { v4 as uuidv4 } from "uuid";
 
 export function App() {
   const [tasks, setTasks] = useState(["Estado inicial do meu useState"]);
-  const [newTask, setNewTask] = useState('')
+  const [newTask, setNewTask] = useState("");
 
   function handleCreateNewTask() {
-
-    if (newTask.trim() === '') {
+    if (newTask.trim() === "") {
       return;
     }
 
     setTasks([...tasks, newTask]);
-    setNewTask('')
+    setNewTask("");
   }
 
   return (
@@ -41,13 +39,13 @@ export function App() {
       </div>
 
       <div className={styles.taskWrapper}>
-        <TaskCounter />
+        <TaskCounter taskCreatedCounter={tasks.length} />
         <div className={styles.taskList}>
           {tasks.length > 0 ? (
             <>
               {tasks.map((task) => {
                 // return <TaskList key={task.id} name={task.name} />;
-                return <TaskList content={task} />;
+                return <TaskList key={uuidv4()} content={task} />;
               })}
             </>
           ) : (
