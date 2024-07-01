@@ -8,8 +8,14 @@ import { PlusCircle } from "@phosphor-icons/react";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+export interface ITask {
+  id: string;
+  content: string;
+  isChecked?: boolean;
+}
+
 export function App() {
-  const [tasks, setTasks] = useState(["Estado inicial do meu useState"]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
   const [newTask, setNewTask] = useState("");
 
   function handleCreateNewTask() {
@@ -17,8 +23,22 @@ export function App() {
       return;
     }
 
-    setTasks([...tasks, newTask]);
+    const newTaskObject: ITask = {
+      id: uuidv4(),
+      content: newTask,
+    };
+
+    setTasks((state) => [...state, newTaskObject]);
     setNewTask("");
+  }
+
+  function handleDeleteTask(id: string) {
+    if (!confirm("Deseja mesmo deletar essa task?")) {
+      return;
+    }
+
+    const filteredTask = tasks.filter((task) => task.id !== id);
+    setTasks(filteredTask);
   }
 
   return (
@@ -44,8 +64,14 @@ export function App() {
           {tasks.length > 0 ? (
             <>
               {tasks.map((task) => {
-                // return <TaskList key={task.id} name={task.name} />;
-                return <TaskList key={uuidv4()} content={task} />;
+                return (
+                  <TaskList
+                    taskDelete={() => handleDeleteTask(task.id)}
+                    key={task.id}
+                    content={task.content}
+                    isChecked={task.isChecked}
+                  />
+                );
               })}
             </>
           ) : (

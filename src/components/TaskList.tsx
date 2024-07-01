@@ -7,7 +7,12 @@ interface TaskListProps {
   content: string;
 }
 
-export function TaskList({ content }: TaskListProps) {
+export function TaskList({ content, taskDelete }: TaskListProps) {
+  function handleRemove() {
+    taskDelete(content.uuidv4)
+  }
+
+
   return (
     <div className={styles.listWrapper}>
       <Checkbox
@@ -21,7 +26,7 @@ export function TaskList({ content }: TaskListProps) {
       />
       <p>{content}</p>
       <button>
-        <Trash size={16} color="#808080" />
+        <Trash onClick={taskDelete} size={16} color="#808080" />
       </button>
     </div>
   );
