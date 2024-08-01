@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 export interface ITask {
   id: string;
   content: string;
-  isChecked?: boolean;
+  isChecked: boolean;
 }
 
 export function App() {
@@ -26,6 +26,7 @@ export function App() {
     const newTaskObject: ITask = {
       id: uuidv4(),
       content: newTask,
+      isChecked: false
     };
 
     setTasks((state) => [...state, newTaskObject]);
@@ -40,6 +41,19 @@ export function App() {
     const filteredTask = tasks.filter((task) => task.id !== id);
     setTasks(filteredTask);
   }
+
+  function handleToggleTask({ id, value }: { id: string; value: boolean }) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, isChecked: value }
+      }
+      return task
+    })
+
+    setTasks(updatedTasks)
+  }
+
+  const completedTasks = tasks.filter(task => task.isChecked).length;
 
   return (
     <div className={styles.wrapper}>
@@ -59,7 +73,7 @@ export function App() {
       </div>
 
       <div className={styles.taskWrapper}>
-        <TaskCounter taskCreatedCounter={tasks.length} />
+        <TaskCounter taskCreatedCounter={tasks.length} taskCompletedCounter={completedTasks} />
         <div className={styles.taskList}>
           {tasks.length > 0 ? (
             <>
@@ -68,8 +82,10 @@ export function App() {
                   <TaskList
                     taskDelete={() => handleDeleteTask(task.id)}
                     key={task.id}
+                    id={task.id}
                     content={task.content}
                     isChecked={task.isChecked}
+                    toggleTaskStatus={handleToggleTask}
                   />
                 );
               })}

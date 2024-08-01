@@ -1,30 +1,80 @@
 .listWrapper {
-    display: flex;
-    width: 100%;
-    background: var(--gray-400);
-    color: var(--gray-300);
-    padding: 1rem;
-    gap: 1.35rem;
-    align-items: center;
-    border-radius: 8px;
+  display: flex;
+  width: 100%;
+  background: var(--gray-400);
+  color: var(--gray-300);
+  padding: 1rem;
+  gap: 1.35rem;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.checkBoxAnchor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.customCheckboxWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.customCheckbox {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--gray-400);
+  border-radius: 50%;
+  outline: 2px solid var(--blue);
+  cursor: pointer;
+}
+
+.customCheckbox:checked {
+  background-color: var(--purple);
+  outline: 2px solid var(--purple);
+}
+
+.checkIcon {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex: 1;
+}
+
+.customCheckbox:checked + .checkIcon {
+  display: block;
 }
 
 .listWrapper p {
-    flex: 1;
-    color: var(--white);
+  flex: 1;
+  color: var(--white);
 }
 
+.taskText {
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.taskDoneText {
+  margin-left: 8px;
+  text-decoration: line-through;
+  color: var(--gray-300);
+  font-style: italic;
+}
 
 .listWrapper button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    /* border: none;
-    background-color: transparent;
-    border-radius: 4px;
-  
-    padding: 5px 4px 2px 4px;
-    
-    transition: 0.2s background-color;
-    cursor: pointer; */
-  }
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
