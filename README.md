@@ -1,3 +1,9 @@
+Olá, esse projeto criar uma aplicação para solucionar problemas de organização e produtividade do seu dia! Para rodar o projeto siga esses passsos:
+1. clone o repositório 
+2. Acesse a pasta através do terminal
+3. npm install
+4. npm run dev
+
 ![image](https://github.com/user-attachments/assets/c50350b4-9d59-412e-87ee-c613a9df0637)
 ![image](https://github.com/user-attachments/assets/c25a1139-5567-4e3f-828e-186cd5755f81)
 ![image](https://github.com/user-attachments/assets/48d673ea-f68e-4043-9b1e-97e60fba9523)
